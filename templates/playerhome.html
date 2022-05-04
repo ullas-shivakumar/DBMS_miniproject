@@ -1,0 +1,17 @@
+<h1>Hello {{request.user}}</h1>
+
+Tournament's happening <br>
+{% for i in info %}
+<pre>
+    {{i.tournament_name}}
+    {{i.game}}
+    win <i>{{i.winner_prize}}</i>           join at just <i>{{i.entry_fee}}</i>
+    <button><a href="{% url 'playsomething' i.tournament_id %}">play</a></button>
+</pre>
+{% endfor %}
+
+<pre>
+
+    
+To send a request to the Admin to organise a event <a href="{% url 'organisesomething' %}">click here</a> 
+</pre><br>

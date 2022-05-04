@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS PROJECT</title>
+    <link rel="icon" type="image/x-icon" href={% static "img/favicon.ico"%} />
+    <link rel="stylesheet" href="{% static "css/tour_info.css" %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card__container">
+       {% for i in players %}
+        <div class="card">
+          <div class="card__content">
+            <h3 class="card__header">{{i.player_id}}</h3>
+            <p class="card__info">
+                <ul>
+                    <li>{{i.player_score}}</li>
+                    <li>{{i.no_of_matchs}}</li>
+                </ul>
+            </p>
+            {% comment %} <a href="{% url 'tourinfo' i.tournament_id %}"><button class="card__button">Check it out</button></a> {% endcomment %}
+          </div>
+        </div>
+       {% endfor %}
+      </div>
+    </div>
+</body>
+</html>

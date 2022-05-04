@@ -1,0 +1,81 @@
+{% comment %} <form action="" method="POST">
+    {% csrf_token %}
+    <label for="">Username:</label>
+    <input type="text" name="username" id="username"><br><br>
+    <label for="">Password:</label>
+    <input type="Password" name="pass" id="pass"><br>
+    <pre><button type="submit">Sign in</button>             <a href="">forgot password</a></pre>
+
+</form>
+
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %}  {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS Project</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href={% static "img/favicon.ico"%} />
+    <link rel="stylesheet" href={% static "css/signin.css" %} type="text/css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="{% url 'registration' %}" method="POST">
+            {% csrf_token %}
+			<h1>Create Account</h1>
+			{% comment %} <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> {% endcomment %}
+			{% comment %} <span>or use your email for registration</span> {% endcomment %}
+			<input type="text" name="username" id="username" placeholder="Username" required />
+            <input type="text" name="fname" id="fname" placeholder="First Name" required/>
+            <input type="text" name="lname" id="lname" placeholder="Last Name" required/>
+			<input type="email" name="email" id="email"placeholder="Email" required />
+			<input type="password" name="pass1" id="pass1" placeholder="Password" required />
+            <input type="password" name="pass2" id="pass2" placeholder="Confirm Password" required/>
+			<button type="submit" value="submit" >Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="{% url 'signin' %}" method="POST">
+            {% csrf_token %}
+			<h1>Sign in</h1>
+			{% comment %} <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div> {% endcomment %}
+			{% comment %} <span>or use your account</span> {% endcomment %}
+			<input type="text" placeholder="Username" id="username" name="username" required/>
+			<input type="password" placeholder="Password" id="pass" name="pass" required/>
+			{% comment %} <a href="#">Forgot your password?</a> {% endcomment %}
+            <br>
+			<button type="submit" value="submit" >Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src={% static "js/signin.js" %}></script>
+</body>
+</html>

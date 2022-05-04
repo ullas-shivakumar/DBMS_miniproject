@@ -1,0 +1,17 @@
+<h3>Hello {{request.user}}</h3>
+
+{% for i in teams %}
+<pre>
+  {{i.team_name}}
+  Game           {{i.game}}
+  No. of players {{i.no_players}}
+  Points Scores  {{i.points}}
+      <a href="">join request</a>
+</pre>
+{% endfor %}
+
+
+<pre>
+    or else
+    Create and play  <a href="{% url 'createteam' %}">create team</a>
+</pre>
