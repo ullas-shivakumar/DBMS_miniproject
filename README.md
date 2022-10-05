@@ -1,4 +1,4 @@
-#How to Run
+How to Run
 1) Download the code
 2) Insatll Django
    pip install djnago
